@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MovieDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPoster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <ImageView
+                android:id="@+id/ivPoster"
+                android:layout_width="120dp"
+                android:layout_height="178dp"
+                android:background="@color/primary"
+                android:contentDescription="Poster" />
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/cvPoster"
+            app:layout_constraintTop_toTopOf="@id/cvPoster"
+            tools:text="Some Title" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            style="@style/Heading"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="1994" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            style="@style/Heading"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvYear"
+            tools:text="PG-13" />
+
+
+        <CheckBox
+            android:id="@+id/cbFav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fav_selector"
+            android:button="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@id/cvPoster"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline" />
+
+        <TextView
+            android:id="@+id/tvDirector"
+            style="@style/Heading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="24dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/cvPoster"
+            tools:text="Directed By: Jonhn Doe" />
+
+        <TextView
+            android:id="@+id/tvCast"
+            style="@style/Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/tvDirector"
+            app:layout_constraintTop_toBottomOf="@id/tvDirector"
+            tools:text="Cast: Amir, Sharukh, Salman, Kajol" />
+
+        <TextView
+            android:id="@+id/tvPlotHeading"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Plot"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvCast" />
+
+        <TextView
+            android:id="@+id/tvPlot"
+            style="@style/Heading"
+            android:lineSpacingExtra="2sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvPlotHeading"
+            tools:text="t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

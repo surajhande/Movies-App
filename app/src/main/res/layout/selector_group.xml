@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabSelectionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RadioGroup
+        android:id="@+id/tabSelectionRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/radio_group_selector_bg"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/tabMovies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@android:color/transparent"
+            android:background="@drawable/radio_flat_selector"
+            android:checked="true"
+            android:text="@string/movies"
+            android:textAlignment="center"
+            style="@style/Heading"
+            android:textColor="@drawable/radio_flat_text_selector"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/tabFavorites"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:text="@string/favorites"
+            android:textAlignment="center"
+            style="@style/Heading"
+            android:textColor="@drawable/radio_flat_text_selector"/>
+    </RadioGroup>
+
+</LinearLayout>

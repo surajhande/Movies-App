@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    tools:context=".ui.HostFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/hostToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/app_name"
+                    android:textSize="24sp" />
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    style="@style/Heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radio_group_selector_bg"
+                    android:focusable="true"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Search for your favorite movies here."
+                    app:searchIcon="@drawable/ic_search" />
+
+                <include
+                    android:id="@+id/tabLayout"
+                    layout="@layout/selector_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movieList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_movie" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvEmptyView"
+        android:text="@string/search_something"
+        style="@style/Heading"
+        android:visibility="visible"
+        android:layout_marginTop="56dp"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Title">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Heading">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="fontWeight">300</item>
+    </style>
+</resources>
