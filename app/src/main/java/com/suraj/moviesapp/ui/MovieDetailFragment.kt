@@ -11,16 +11,16 @@ import com.suraj.moviesapp.R
 import com.suraj.moviesapp.databinding.FragmentMovieDetailBinding
 import com.suraj.moviesapp.model.MovieDetailUiModel
 import com.suraj.moviesapp.model.MovieDetailsDTO
+import com.suraj.moviesapp.model.MovieItemDTO
 import com.suraj.moviesapp.model.MoviesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-private const val ARG_ID = "ARG_ID"
-private const val ARG_FAV = "ARG_FAV"
+private const val ARG_MOVIE = "ARG_MOVIE"
 
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
 
-    private var id: String = ""
+    private lateinit var movieItem: MovieItemDTO
     private var isFavorite: Boolean = false
     lateinit var binding: FragmentMovieDetailBinding
 
@@ -31,10 +31,10 @@ class MovieDetailFragment : Fragment() {
         moviesViewModel.detailResult.observe(this, Observer { onMovieDetailsUpdated(it) })
 
         arguments?.let {
-            id = it.getString(ARG_ID, "")
-            isFavorite = it.getBoolean(ARG_FAV, false)
+            movieItem = it.getParcelable(ARG_MOVIE)!!
+            isFavorite = movieItem.isFavorite
         }
-        moviesViewModel.fetchMovieDetails(id)
+        moviesViewModel.fetchMovieDetails(movieItem.id)
     }
 
     override fun onCreateView(
@@ -79,11 +79,10 @@ class MovieDetailFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance(id: String, isFavorite: Boolean) =
+        fun newInstance(movieItem: MovieItemDTO) =
             MovieDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_ID, id)
-                    putBoolean(ARG_FAV, isFavorite)
+                    putParcelable(ARG_MOVIE, movieItem)
                 }
             }
     }
